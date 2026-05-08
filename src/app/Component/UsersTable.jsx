@@ -45,7 +45,7 @@ const UsersTable = ({ users, deleteUserAction }) => {
 
   return (
     <div className="w-full rounded-2xl border border-gray-100 shadow-sm overflow-hidden bg-white">
-      
+      {/* Table header */}
       <div className="grid grid-cols-[2fr_1.2fr_2.5fr_1.5fr] px-6 py-3 bg-gray-50 border-b border-gray-100">
         {["Name", "Role", "Email", "Actions"].map((h) => (
           <span key={h} className="text-xs font-semibold uppercase tracking-widest text-gray-400">
@@ -54,16 +54,16 @@ const UsersTable = ({ users, deleteUserAction }) => {
         ))}
       </div>
 
-      
+      {/* Rows */}
       <div className="divide-y divide-gray-50">
-        {users.map((user) => {
+        {users.map((user, i) => {
           const avatarColor = getAvatarColor(user.name);
           return (
             <div
               key={user._id}
               className="grid grid-cols-[2fr_1.2fr_2.5fr_1.5fr] items-center px-6 py-4 hover:bg-gray-50/60 transition-colors duration-150 group"
             >
-              
+              {/* Name + Avatar */}
               <div className="flex items-center gap-3 min-w-0">
                 <div className={`flex-shrink-0 w-9 h-9 rounded-full flex items-center justify-center text-xs font-semibold ${avatarColor}`}>
                   {getInitials(user.name)}
@@ -71,17 +71,17 @@ const UsersTable = ({ users, deleteUserAction }) => {
                 <span className="text-sm font-medium text-gray-800 truncate">{user.name}</span>
               </div>
 
-             
+              {/* Role */}
               <div>
                 <RoleBadge role={user.role} />
               </div>
 
-              
+              {/* Email */}
               <div className="min-w-0">
                 <span className="text-sm text-gray-500 truncate block">{user.email}</span>
               </div>
 
-              
+              {/* Actions */}
               <div className="flex items-center gap-2">
                 <Link href={`/users/${user._id}`}>
                   <button className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-medium text-gray-600 border border-gray-200 hover:border-gray-300 hover:bg-white hover:shadow-sm transition-all duration-150">
@@ -116,7 +116,7 @@ const UsersTable = ({ users, deleteUserAction }) => {
                         <AlertDialog.CloseTrigger className="absolute top-4 right-4 text-gray-400 hover:text-gray-600" />
 
                         <AlertDialog.Header className="pt-6 px-6 pb-0 flex flex-col items-center text-center gap-3">
-                          
+                          {/* Danger icon */}
                           <div className="w-12 h-12 rounded-full bg-red-50 flex items-center justify-center">
                             <svg className="w-6 h-6 text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
@@ -159,7 +159,7 @@ const UsersTable = ({ users, deleteUserAction }) => {
           );
         })}
 
-        
+        {/* Empty state */}
         {users.length === 0 && (
           <div className="py-16 flex flex-col items-center gap-3 text-gray-400">
             <svg className="w-10 h-10 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
