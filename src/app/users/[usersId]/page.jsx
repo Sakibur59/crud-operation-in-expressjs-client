@@ -7,6 +7,8 @@ const UserDetailsPage = async({params}) => {
     return (
         <div>
             <h2>User details:{user.name}</h2>
+            <p>Email: {user.email}</p>
+            <p>Role: {user.role}</p>
         </div>
     );
 };

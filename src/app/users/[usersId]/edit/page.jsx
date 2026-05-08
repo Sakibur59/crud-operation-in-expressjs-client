@@ -1,6 +1,7 @@
 import { updateUser } from "@/app/lib/actions";
 import { getUserById } from "@/app/lib/data";
 import { Button, Input, Label, TextField } from "@heroui/react";
+import Link from "next/link";
 import React from "react";
 
 const UserEditPage = async ({ params }) => {
@@ -13,7 +14,7 @@ const UserEditPage = async ({ params }) => {
   };
   return (
     <div>
-      <h2>Editing User:</h2>
+      <h2 className="text-center mt-10">Editing Page</h2>
       <div className="w-1/2 mx-auto">
         <form action={updateUserWrapper} className="flex flex-col gap-4">
           <TextField
@@ -45,9 +46,10 @@ const UserEditPage = async ({ params }) => {
           </TextField>
 
           <div className="flex gap-2">
+            <Link href={'/users'}>
             <Button slot="close" variant="secondary">
               Cancel
-            </Button>
+            </Button></Link>
             <Button type="submit" slot="close">
               Update User
             </Button>
