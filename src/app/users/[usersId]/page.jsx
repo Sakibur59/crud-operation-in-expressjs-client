@@ -116,6 +116,10 @@ const UserDetailsPage = async ({ params }) => {
         <p className="text-center text-xs text-gray-300 mt-5">User record · Read only</p>
       </div>
     </div>
+
+
+
+
   );
 };
 
